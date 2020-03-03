@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="repository.RepoProbeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-03T15:11:49" hostname="DESKTOP-JGO467Q" time="0.033">
+  <properties/>
+  <testcase name="cauta" classname="repository.RepoProbeTest" time="0.033"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -9,19 +9,48 @@ import java.util.*;
 
 public class RepoProbe implements Repo<Proba> {
     private ConnectionHelper connectionHelper;
-    private Map<Integer,Proba> probe=new HashMap<>();
+    //private Map<Integer,Proba> probe=new HashMap<>();
 
-    public RepoProbe(Properties properties) {
-        connectionHelper=new ConnectionHelper(properties);
+    public RepoProbe(Properties properties)  {
+        connectionHelper = new ConnectionHelper(properties);
+    }
 
-        try (Connection connection = this.connectionHelper.getConnection();)  {
+    @Override
+    public Collection<Proba> getAll() {
+        ArrayList<Proba> allProbe=new ArrayList<>();
+        try (Connection connection = this.connectionHelper.getConnection();) {
             String query = "select * from contest.categvarsta inner join\n" +
                     "contest.probe on contest.categvarsta.id=contest.probe.idCateg";
+            try (Statement statement = connection.createStatement();) {
+                ResultSet resultSet = statement.executeQuery(query);
 
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    String nume = resultSet.getString("nume");
+                    int vs = resultSet.getInt("varstaStart");
+                    int ve = resultSet.getInt("varstaEnd");
+                    CategVarsta categVarsta = new CategVarsta(nume, vs, ve);
 
-            while (resultSet.next()) {
+                    int idProba = resultSet.getInt("idProba");
+                    String numeProba = resultSet.getString("numeProba");
+                    Proba proba = new Proba(idProba, numeProba, categVarsta);
+
+                    allProbe.add(proba);
+                }
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allProbe;
+    }
+    @Override
+    public Proba cauta(int id) {
+        Proba proba=null;
+        try (Connection connection=connectionHelper.getConnection()){
+            try(PreparedStatement selectStm=connection.prepareStatement("select * from categvarsta inner join\n" +
+                    "probe on categvarsta.id=probe.idCateg where probe.idProba=?");){
+                selectStm.setInt(1,id);
+                ResultSet resultSet=selectStm.executeQuery();
+                resultSet.next();
                 String nume = resultSet.getString("nume");
                 int vs = resultSet.getInt("varstaStart");
                 int ve = resultSet.getInt("varstaEnd");
@@ -29,14 +58,13 @@ public class RepoProbe implements Repo<Proba> {
 
                 int idProba = resultSet.getInt("idProba");
                 String numeProba = resultSet.getString("numeProba");
-                Proba proba = new Proba(idProba, numeProba, categVarsta);
+                proba = new Proba(idProba, numeProba, categVarsta);
 
-                probe.put(idProba,proba);
             }
-        } catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
         }
-
+        return proba;
     }
 
     @Override
@@ -47,16 +75,6 @@ public class RepoProbe implements Repo<Proba> {
     @Override
     public void sterge(Integer id) {
 
-    }
-
-    @Override
-    public Proba cauta(int id) {
-        return probe.get(id);
-    }
-
-    @Override
-    public Collection<Proba> getAll() {
-        return probe.values();
     }
 
     @Override

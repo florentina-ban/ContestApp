@@ -1,6 +1,5 @@
 package utils;
 
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.Properties;
 
@@ -25,20 +24,11 @@ public class ConnectionHelper {
         String user = myProperties.getProperty("user");
         String password = myProperties.getProperty("password");
         try {
-            Class.forName(myProperties.getProperty("mySql.jdbcDriver")).getConstructor().newInstance();
+            Class.forName(myProperties.getProperty("mySql.jdbcDriver"));
             connection = DriverManager.getConnection(myProperties.getProperty("mySql.url"), user, password);
-
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return connection;

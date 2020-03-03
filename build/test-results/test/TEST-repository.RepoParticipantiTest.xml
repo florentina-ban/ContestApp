@@ -1,71 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="repository.RepoParticipantiTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-03-03T09:54:46" hostname="DESKTOP-JGO467Q" time="1.146">
+<testsuite name="repository.RepoParticipantiTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-03-03T15:11:47" hostname="DESKTOP-JGO467Q" time="1.908">
   <properties/>
-  <testcase name="adauga" classname="repository.RepoParticipantiTest" time="0.762"/>
-  <testcase name="getAll" classname="repository.RepoParticipantiTest" time="0.052"/>
-  <testcase name="sterge" classname="repository.RepoParticipantiTest" time="0.072"/>
-  <testcase name="modifica" classname="repository.RepoParticipantiTest" time="0.205"/>
-  <testcase name="cauta" classname="repository.RepoParticipantiTest" time="0.053"/>
-  <system-out><![CDATA[test Adauga
-test getAll
-test Modifica
-test Cauta
+  <testcase name="adauga" classname="repository.RepoParticipantiTest" time="0.81"/>
+  <testcase name="getAll" classname="repository.RepoParticipantiTest" time="0.058"/>
+  <testcase name="sterge" classname="repository.RepoParticipantiTest" time="0.153"/>
+  <testcase name="modifica" classname="repository.RepoParticipantiTest" time="0.814"/>
+  <testcase name="size" classname="repository.RepoParticipantiTest" time="0.039"/>
+  <testcase name="cauta" classname="repository.RepoParticipantiTest" time="0.032"/>
+  <system-out><![CDATA[17:11:47.789 [Test worker] TRACE repository.RepoParticipanti - Enter adauga participant test
+17:11:47.811 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+17:11:48.422 [Test worker] TRACE repository.RepoParticipanti - Enter adauga participat Participant{id=2, nume='Ionel', varsta=8, probe=[proba: 50m CategVarsta: 6-8]}
+s-au sters probele
+s-a sters participantul
+17:11:48.578 [Test worker] TRACE repository.RepoParticipanti - Enter getALl participanti test
+17:11:48.578 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+17:11:48.641 [Test worker] TRACE repository.RepoParticipanti - Enter sterge participant test
+17:11:48.641 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+17:11:48.672 [Test worker] TRACE repository.RepoParticipanti - Enter adauga participat Participant{id=2, nume='Ionel', varsta=8, probe=[proba: 50m CategVarsta: 6-8]}
+s-au sters probele
+s-a sters participantul
+17:11:48.797 [Test worker] TRACE repository.RepoParticipanti - Enter modifica participant test
+17:11:48.797 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+17:11:49.609 [Test worker] TRACE repository.RepoParticipanti - Enter size RepoParticipanti test
+17:11:49.609 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+17:11:49.656 [Test worker] TRACE repository.RepoParticipanti - Enter cauta participant test
+17:11:49.656 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
 ]]></system-out>
-  <system-err><![CDATA[java.sql.SQLException: Illegal operation on empty result set.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
-	at com.mysql.cj.jdbc.result.ResultSetImpl.checkRowPos(ResultSetImpl.java:497)
-	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:803)
-	at com.mysql.cj.jdbc.result.ResultSetImpl.getInt(ResultSetImpl.java:825)
-	at repository.RepoParticipantiTest.sterge(RepoParticipantiTest.java:131)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.runTestClass(JUnitTestClassExecutor.java:110)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:58)
-	at org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor.execute(JUnitTestClassExecutor.java:38)
-	at org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor.processTestClass(AbstractJUnitTestClassProcessor.java:62)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.processTestClass(SuiteTestClassProcessor.java:51)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
-	at com.sun.proxy.$Proxy2.processTestClass(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.processTestClass(TestWorker.java:118)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:175)
-	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:157)
-	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
-	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
-	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-]]></system-err>
+  <system-err><![CDATA[]]></system-err>
 </testsuite>

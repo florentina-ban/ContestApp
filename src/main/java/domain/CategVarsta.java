@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.Objects;
+
 public class CategVarsta {
     private String nume;
     private int varstaStart;
@@ -14,6 +16,19 @@ public class CategVarsta {
     @Override
     public String toString() {
         return "CategVarsta: "+nume;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CategVarsta that = (CategVarsta) o;
+        return getNume().equals(that.getNume());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNume());
     }
 
     public boolean apartine(int varsta){

@@ -17,6 +17,9 @@ public class Participant {
     public void addProba(Proba p){
         probe.add(p);
     }
+    public void  removeProba(Proba p){
+        probe.remove(p);
+    }
 
     @Override
     public String toString() {

@@ -2,6 +2,8 @@ package repository;
 
 import domain.Participant;
 import domain.Proba;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.ConnectionHelper;
 
 import java.sql.*;
@@ -12,14 +14,17 @@ import java.util.Properties;
 public class RepoParticipanti implements Repo<Participant> {
     ConnectionHelper connectionHelper;
     RepoProbe repoProbe;
+    private static final Logger logger= LogManager.getLogger(RepoParticipanti.class.getName());
 
     public RepoParticipanti(Properties prop, RepoProbe repoProbe) {
+        logger.info("initializing RepoParticipanti with properties {}",prop);
         this.repoProbe=repoProbe;
         connectionHelper=new ConnectionHelper(prop);
     }
 
     @Override
     public void adauga(Participant elem) {
+        logger.traceEntry("adauga participat {}",elem);
         try (Connection connection=connectionHelper.getConnection();){
             try (PreparedStatement preparedStatement=
                          connection.prepareStatement("insert into participanti (nume, varsta) VALUES (?,?);");) {
@@ -64,16 +69,16 @@ public class RepoParticipanti implements Repo<Participant> {
         try (PreparedStatement deleteProbePart=connection.prepareStatement("delete from partprobe where IdPart=?")){
             deleteProbePart.setInt(1,id);
             int rowCount=deleteProbePart.executeUpdate();
-            if (rowCount>0)
-                System.out.println("s-au sters probele");
+//            if (rowCount>0)
+//                System.out.println("s-au sters probele");
         } catch (SQLException e) {
             e.printStackTrace();
         }
         try (PreparedStatement deletePart=connection.prepareStatement("delete from participanti where id=?;");){
             deletePart.setInt(1,id);
             int rowCount1=deletePart.executeUpdate();
-            if (rowCount1==1)
-                System.out.println("s-a sters participantul");
+//            if (rowCount1==1)
+//                System.out.println("s-a sters participantul");
         }catch (SQLException e){
             e.printStackTrace();
         }
