@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="repository.RepoInscrieriTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-03-06T14:35:12" hostname="DESKTOP-JGO467Q" time="0.972">
+  <properties/>
+  <testcase name="adauga" classname="repository.RepoInscrieriTest" time="0.749"/>
+  <testcase name="getAll" classname="repository.RepoInscrieriTest" time="0.025"/>
+  <testcase name="sterge" classname="repository.RepoInscrieriTest" time="0.15"/>
+  <testcase name="getSize" classname="repository.RepoInscrieriTest" time="0.022"/>
+  <testcase name="cauta" classname="repository.RepoInscrieriTest" time="0.024"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -9,7 +9,6 @@ import java.util.*;
 
 public class RepoProbe implements Repo<Proba> {
     private ConnectionHelper connectionHelper;
-    //private Map<Integer,Proba> probe=new HashMap<>();
 
     public RepoProbe(Properties properties)  {
         connectionHelper = new ConnectionHelper(properties);

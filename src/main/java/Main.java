@@ -29,17 +29,14 @@ public class Main {
                         .forEach(x->
                         System.out.println(x));
 
-        Participant participant=new Participant(9,"David",6);
-        participant.addProba(repoProbe.cauta(3));
-        repoParticipanti.adauga(participant);
-        /*repoParticipanti.getAll().stream()
-                .forEach(x->
-                        System.out.println(x));
-        repoParticipanti.sterge(participant.getId());
-        repoParticipanti.getAll().stream()
-                .forEach(x->
-                        System.out.println(x));
-        */
+        //Participant participant=new Participant(9,"David",6);
+        //participant.addProba(repoProbe.cauta(3));
+        //repoParticipanti.adauga(participant);
+        //repoParticipanti.sterge(participant.getId());
+
+        //Participant participant1=repoParticipanti.cautaNume("Andrei Marius");
+        //System.out.println(participant1.getNume()+participant1.getVarsta());
+
         System.out.println(repoParticipanti.getSize());
     }
 }

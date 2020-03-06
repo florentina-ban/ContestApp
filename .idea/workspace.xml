@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88619b89-5af3-451d-a501-0b420cc23669" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/repository/RepoProbeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Inscriere.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/myException/InscrieriException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/repository/RepoInscrieriTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -14,33 +15,28 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/4ab747ae-c1a8-4e5d-b8a7-4c73a4c45ef4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4ab747ae-c1a8-4e5d-b8a7-4c73a4c45ef4.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/CategVarsta.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/CategVarsta.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Participant.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Participant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/domain/Proba.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/domain/Proba.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/Repo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/Repo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoParticipanti.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoParticipanti.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/repository/RepoProbe.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/repository/RepoProbe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/utils/ConnectionHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/utils/ConnectionHelper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/repository/RepoParticipantiTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/repository/RepoParticipantiTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/mpp-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/mpp-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/repository.RepoParticipantiTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/repository.RepoParticipantiTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/repository.RepoProbeTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/repository.RepoProbeTest.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/repository.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/repository.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-repository.RepoParticipantiTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-repository.RepoParticipantiTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-repository.RepoProbeTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-repository.RepoProbeTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/CategVarsta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/CategVarsta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/Participant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Participant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Proba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Proba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/Repo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoParticipanti.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoParticipanti.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/RepoProbe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/RepoProbe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/ConnectionHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/ConnectionHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/repository/RepoParticipantiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/repository/RepoParticipantiTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -132,9 +128,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
-        <option value="JUnit4 Test Class" />
         <option value="Tag Library Descriptor" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -183,32 +179,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ContestApp [test]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="mpp.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="ContestApp [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="jar" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="ContestApp [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -229,12 +206,12 @@
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="RepoParticipantiTest.cauta" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RepoInscrieriTest.adauga" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;repository.RepoParticipantiTest.cauta&quot;" />
+        <option name="scriptParameters" value="--tests &quot;repository.RepoInscrieriTest.adauga&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -249,17 +226,53 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="mpp-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/build/libs/mpp-1.0-SNAPSHOT.jar" />
+    <configuration name="RepoInscrieriTest.cauta" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;repository.RepoInscrieriTest.cauta&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RepoInscrieriTest.getAll" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;repository.RepoInscrieriTest.getAll&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.mpp-1.0-SNAPSHOT.jar" />
-        <item itemvalue="Gradle.ContestApp [jar]" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Gradle.RepoParticipantiTest.cauta" />
         <item itemvalue="Gradle.ContestApp [test]" />
+        <item itemvalue="Gradle.RepoInscrieriTest.getAll" />
+        <item itemvalue="Gradle.RepoInscrieriTest.adauga" />
+        <item itemvalue="Gradle.RepoInscrieriTest.cauta" />
       </list>
     </recent_temporary>
   </component>
@@ -270,12 +283,17 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b45ce487" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3162392c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b45ce487" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5da34636" type="9fbbdea:ServiceModel$ServiceNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3162392c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@2ec8349f" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@3162392c" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@63b37c8a" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
           <select />
@@ -296,7 +314,10 @@
       <workItem from="1583066487790" duration="12157000" />
       <workItem from="1583146250757" duration="8539000" />
       <workItem from="1583213169586" duration="15716000" />
-      <workItem from="1583229758731" duration="10280000" />
+      <workItem from="1583229758731" duration="10515000" />
+      <workItem from="1583427589214" duration="1377000" />
+      <workItem from="1583485043728" duration="1036000" />
+      <workItem from="1583489130911" duration="11312000" />
     </task>
     <servers />
   </component>
@@ -308,7 +329,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -337,6 +360,8 @@
         <watch expression="updStm" language="JAVA" />
         <watch expression="this.getClass().getResource(&quot;configTest.properties&quot;).getPath())" language="JAVA" />
         <watch expression="this.getClass().getResource(&quot;configTest.properties&quot;).getPath()" language="JAVA" />
+        <watch expression="rs.getInt(&quot;id&quot;)" language="JAVA" />
+        <watch expression="connection" language="JAVA" />
       </configuration>
       <configuration name="JarApplication">
         <watch expression="password" language="JAVA" />

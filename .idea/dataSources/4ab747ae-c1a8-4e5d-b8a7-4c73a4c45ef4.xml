@@ -1182,53 +1182,64 @@
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="295" parent="282" name="idPart_idx">
+    <column id="295" parent="282" name="NrInscriere">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="296" parent="282" name="idPart_idx">
       <ColNames>IdPart</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="296" parent="282" name="idProba_idx">
+    <index id="297" parent="282" name="idProba_idx">
       <ColNames>IdProba</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="297" parent="282" name="idPart">
+    <key id="298" parent="282" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NrInscriere</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="299" parent="282" name="idPart">
       <ColNames>IdPart</ColNames>
       <RefTableName>participanti</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <foreign-key id="298" parent="282" name="idProba">
+    <foreign-key id="300" parent="282" name="idProba">
       <ColNames>IdProba</ColNames>
       <RefTableName>probe</RefTableName>
       <RefColNames>idProba</RefColNames>
     </foreign-key>
-    <column id="299" parent="283" name="numeProba">
+    <column id="301" parent="283" name="numeProba">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="283" name="idCateg">
+    <column id="302" parent="283" name="idCateg">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="283" name="idProba">
+    <column id="303" parent="283" name="idProba">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="302" parent="283" name="idCateg_idx">
+    <index id="304" parent="283" name="idCateg_idx">
       <ColNames>idCateg</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="303" parent="283" name="PRIMARY">
+    <key id="305" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idProba</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="304" parent="283" name="idCateg">
+    <foreign-key id="306" parent="283" name="idCateg">
       <ColNames>idCateg</ColNames>
       <RefTableName>categvarsta</RefTableName>
       <RefColNames>id</RefColNames>

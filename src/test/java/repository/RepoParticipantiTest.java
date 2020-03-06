@@ -19,14 +19,12 @@ public class RepoParticipantiTest {
 
     @Test
     public void adauga() {
-        logger.traceEntry("adauga participant test");
         Properties testProp = new Properties();
         try {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoProbe repoProbe = new RepoProbe(testProp);
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
             Participant participant = new Participant(2, "Ionel", 8);
-            participant.addProba(repoProbe.cauta(7));
             repoParticipanti.adauga(participant);
             assertEquals(repoParticipanti.getSize(), 2);
 
@@ -45,7 +43,6 @@ public class RepoParticipantiTest {
                     }
                 }
             }
-
         }catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -65,14 +62,13 @@ public class RepoParticipantiTest {
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
             Participant participant = repoParticipanti.cauta(1);
             assertEquals(participant.getNume(), "Gigela");
-            assertEquals(participant.getProbe().size(), 1);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-
     }
+
     @Test
     public void size(){
         logger.traceEntry("size RepoParticipanti test");
@@ -117,18 +113,14 @@ public class RepoParticipantiTest {
             Participant participant = repoParticipanti.cauta(1);
             participant.setNume("Gigel");
             participant.setVarsta(7);
-            participant.addProba(repoProbe.cauta(7));
-
             repoParticipanti.modifica(participant);
             Participant participant1 = repoParticipanti.cauta(1);
             assertEquals(participant1.getNume(), "Gigel");
             assertEquals(participant1.getVarsta(), 7);
-            assertEquals(participant1.getProbe().size(), 2);
 
             participant=repoParticipanti.cauta(1);
             participant.setNume("Gigela");
             participant.setVarsta(8);
-            participant.removeProba(repoProbe.cauta(7));
             repoParticipanti.modifica(participant);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -147,7 +139,6 @@ public class RepoParticipantiTest {
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
 
             Participant participant=new Participant(2,"Ionel",8);
-            participant.addProba(repoProbe.cauta(7));
             repoParticipanti.adauga(participant);
 
             Connection connection = new ConnectionHelper(testProp).getConnection();
@@ -169,6 +160,4 @@ public class RepoParticipantiTest {
             e.printStackTrace();
         }
     }
-
-
 }

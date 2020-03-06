@@ -6,7 +6,6 @@ public class Participant {
     private Integer id;
     private String nume;
     private int varsta;
-    private ArrayList<Proba> probe=new ArrayList<>();
 
     public Participant(Integer id, String nume, int varsta) {
         this.id = id;
@@ -14,12 +13,6 @@ public class Participant {
         this.varsta = varsta;
     }
 
-    public void addProba(Proba p){
-        probe.add(p);
-    }
-    public void  removeProba(Proba p){
-        probe.remove(p);
-    }
 
     @Override
     public String toString() {
@@ -27,7 +20,6 @@ public class Participant {
                 "id=" + id +
                 ", nume='" + nume + '\'' +
                 ", varsta=" + varsta +
-                ", probe=" + probe +
                 '}';
     }
 
@@ -40,10 +32,6 @@ public class Participant {
         this.varsta = varsta;
     }
 
-    public void setProbe(ArrayList<Proba> probe) {
-        this.probe = probe;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -54,9 +42,5 @@ public class Participant {
 
     public int getVarsta() {
         return varsta;
-    }
-
-    public ArrayList<Proba> getProbe() {
-        return probe;
     }
 }
