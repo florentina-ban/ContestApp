@@ -3,11 +3,19 @@ package domain;
 import java.util.Objects;
 
 public class CategVarsta {
+    private int id;
     private String nume;
     private int varstaStart;
     private int varstaEnd;
 
     public CategVarsta(String nume, int varstaStart, int varstaEnd) {
+        this.nume = nume;
+        this.varstaStart = varstaStart;
+        this.varstaEnd = varstaEnd;
+    }
+
+    public CategVarsta(Integer id,String nume, int varstaStart, int varstaEnd) {
+        this.id=id;
         this.nume = nume;
         this.varstaStart = varstaStart;
         this.varstaEnd = varstaEnd;

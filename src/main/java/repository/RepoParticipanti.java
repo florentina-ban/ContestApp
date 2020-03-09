@@ -1,6 +1,7 @@
 package repository;
 
 import domain.Participant;
+import domain.Proba;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.ConnectionHelper;
@@ -12,12 +13,10 @@ import java.util.Properties;
 
 public class RepoParticipanti implements Repo<Participant> {
     ConnectionHelper connectionHelper;
-    RepoProbe repoProbe;
     private static final Logger logger= LogManager.getLogger(RepoParticipanti.class.getName());
 
     public RepoParticipanti(Properties prop, RepoProbe repoProbe) {
         logger.info("initializing RepoParticipanti with properties {}",prop);
-        this.repoProbe=repoProbe;
         connectionHelper=new ConnectionHelper(prop);
     }
 

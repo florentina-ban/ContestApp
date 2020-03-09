@@ -22,7 +22,8 @@ public class RepoParticipantiTest {
         Properties testProp = new Properties();
         try {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-            RepoProbe repoProbe = new RepoProbe(testProp);
+            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
+            RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
             Participant participant = new Participant(2, "Ionel", 8);
             repoParticipanti.adauga(participant);
@@ -58,7 +59,8 @@ public class RepoParticipantiTest {
         Properties testProp=new Properties();
         try {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-            RepoProbe repoProbe = new RepoProbe(testProp);
+            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
+            RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
             Participant participant = repoParticipanti.cauta(1);
             assertEquals(participant.getNume(), "Gigela");
@@ -75,7 +77,8 @@ public class RepoParticipantiTest {
         Properties testProp=new Properties();
         try {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-            RepoProbe repoProbe = new RepoProbe(testProp);
+            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
+            RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
             assertEquals(repoParticipanti.getAll().size(),1);
         } catch (FileNotFoundException e) {
@@ -91,7 +94,8 @@ public class RepoParticipantiTest {
         Properties testProp=new Properties();
         try {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-            RepoProbe repoProbe = new RepoProbe(testProp);
+            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
+            RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
             assertEquals(repoParticipanti.getAll().size(),1);
         } catch (FileNotFoundException e) {
@@ -107,7 +111,8 @@ public class RepoParticipantiTest {
         Properties testProp = new Properties();
         try {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-            RepoProbe repoProbe = new RepoProbe(testProp);
+            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
+            RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
             Connection connection = new ConnectionHelper(testProp).getConnection();
             Participant participant = repoParticipanti.cauta(1);
@@ -135,7 +140,8 @@ public class RepoParticipantiTest {
         Properties testProp = new Properties();
         try {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-            RepoProbe repoProbe = new RepoProbe(testProp);
+            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
+            RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
             RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
 
             Participant participant=new Participant(2,"Ionel",8);

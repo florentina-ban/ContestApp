@@ -9,30 +9,25 @@ import java.util.*;
 
 public class RepoProbe implements Repo<Proba> {
     private ConnectionHelper connectionHelper;
+    RepoCategVarsta repoCategVarsta;
 
-    public RepoProbe(Properties properties)  {
+    public RepoProbe(Properties properties, RepoCategVarsta rep)  {
         connectionHelper = new ConnectionHelper(properties);
+        repoCategVarsta=rep;
     }
 
     @Override
     public Collection<Proba> getAll() {
         ArrayList<Proba> allProbe=new ArrayList<>();
         try (Connection connection = this.connectionHelper.getConnection();) {
-            String query = "select * from contest.categvarsta inner join\n" +
-                    "contest.probe on contest.categvarsta.id=contest.probe.idCateg";
+            String query = "select * from contest.probe";
             try (Statement statement = connection.createStatement();) {
                 ResultSet resultSet = statement.executeQuery(query);
-
                 while (resultSet.next()) {
-                    String nume = resultSet.getString("nume");
-                    int vs = resultSet.getInt("varstaStart");
-                    int ve = resultSet.getInt("varstaEnd");
-                    CategVarsta categVarsta = new CategVarsta(nume, vs, ve);
-
                     int idProba = resultSet.getInt("idProba");
                     String numeProba = resultSet.getString("numeProba");
+                    CategVarsta categVarsta=repoCategVarsta.cauta(resultSet.getInt("idCateg"));
                     Proba proba = new Proba(idProba, numeProba, categVarsta);
-
                     allProbe.add(proba);
                 }
             }
@@ -45,16 +40,11 @@ public class RepoProbe implements Repo<Proba> {
     public Proba cauta(int id) {
         Proba proba=null;
         try (Connection connection=connectionHelper.getConnection()){
-            try(PreparedStatement selectStm=connection.prepareStatement("select * from categvarsta inner join\n" +
-                    "probe on categvarsta.id=probe.idCateg where probe.idProba=?");){
+            try(PreparedStatement selectStm=connection.prepareStatement("select * from probe where probe.idProba=?");){
                 selectStm.setInt(1,id);
                 ResultSet resultSet=selectStm.executeQuery();
                 resultSet.next();
-                String nume = resultSet.getString("nume");
-                int vs = resultSet.getInt("varstaStart");
-                int ve = resultSet.getInt("varstaEnd");
-                CategVarsta categVarsta = new CategVarsta(nume, vs, ve);
-
+                CategVarsta categVarsta = repoCategVarsta.cauta(resultSet.getInt("idCateg"));
                 int idProba = resultSet.getInt("idProba");
                 String numeProba = resultSet.getString("numeProba");
                 proba = new Proba(idProba, numeProba, categVarsta);

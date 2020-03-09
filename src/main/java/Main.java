@@ -1,4 +1,14 @@
+import controller.Controller;
 import domain.Participant;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
+import repository.RepoCategVarsta;
+import repository.RepoInscrieri;
 import repository.RepoParticipanti;
 import repository.RepoProbe;
 
@@ -6,37 +16,28 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import service.Service;
 
-public class Main {
-    public static void main(String[] args) {
-        Properties properties=new Properties();
-        try {
-            properties.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\main\\config.properties"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+public class Main{
+  public static void main(String[] args) {
+      Properties properties = new Properties();
+      try {
+          properties.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\main\\config.properties"));
+      } catch (FileNotFoundException e) {
+          e.printStackTrace();
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
 
-        RepoProbe repoProbe = new RepoProbe(properties);
-        repoProbe.getAll().
-                stream()
-                .forEach(x -> System.out.println(x));
+      RepoCategVarsta repoCategVarsta = new RepoCategVarsta(properties);
+      RepoProbe repoProbe = new RepoProbe(properties,repoCategVarsta);
+      RepoParticipanti repoParticipanti = new RepoParticipanti(properties, repoProbe);
+      RepoInscrieri repoInscrieri = new RepoInscrieri(properties,repoParticipanti,repoProbe);
+      Service service = new Service(repoParticipanti, repoInscrieri, repoProbe);
 
-        RepoParticipanti repoParticipanti=new RepoParticipanti(properties,repoProbe);
 
-        repoParticipanti.getAll().stream()
-                        .forEach(x->
-                        System.out.println(x));
+      // MainApp.main(args);
 
-        //Participant participant=new Participant(9,"David",6);
-        //participant.addProba(repoProbe.cauta(3));
-        //repoParticipanti.adauga(participant);
-        //repoParticipanti.sterge(participant.getId());
 
-        //Participant participant1=repoParticipanti.cautaNume("Andrei Marius");
-        //System.out.println(participant1.getNume()+participant1.getVarsta());
-
-        System.out.println(repoParticipanti.getSize());
-    }
+  }
 }

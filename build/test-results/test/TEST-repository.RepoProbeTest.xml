@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="repository.RepoProbeTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-03-06T14:35:14" hostname="DESKTOP-JGO467Q" time="0.023">
+<testsuite name="repository.RepoProbeTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-03-09T12:27:52" hostname="DESKTOP-JGO467Q" time="0.284">
   <properties/>
-  <testcase name="cauta" classname="repository.RepoProbeTest" time="0.023"/>
+  <testcase name="getAll" classname="repository.RepoProbeTest" time="0.235"/>
+  <testcase name="cauta" classname="repository.RepoProbeTest" time="0.049"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
