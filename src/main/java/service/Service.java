@@ -6,14 +6,14 @@ import domain.Proba;
 import repository.Repo;
 
 public class Service {
-    public Repo<Participant> repoParticipanti;
+    //public Repo<Participant> repoParticipanti;
     public Repo<Inscriere> repoInscrieri;
-    public Repo<Proba> repoProbe;
+   // public Repo<Proba> repoProbe;
 
-    public Service(Repo repoPart, Repo repoIns, Repo repoProbe) {
-        this.repoParticipanti = repoPart;
+    public Service(Repo repoIns) {
+      //  this.repoParticipanti = repoPart;
         this.repoInscrieri=repoIns;
-        this.repoProbe=repoProbe;
+       // this.repoProbe=repoProbe;
     }
 
 

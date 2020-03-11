@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <util:properties id="jdbcProps" location="classpath:config.properties"/>
+    <bean id="repoCateg" class="repository.RepoCategVarsta">
+        <constructor-arg ref="jdbcProps"/>
+    </bean>
+    <bean id="repoProbe" class="repository.RepoProbe">
+        <constructor-arg name="properties" ref="jdbcProps"/>
+        <constructor-arg name="rep" ref="repoCateg"/>
+    </bean>
+
+    <bean id="valParticipanti" class="validator.ValParticipanti">
+        <property name="repoParticipanti" ref="repoParticipanti"/>
+    </bean>
+    <bean id="repoParticipanti" class="repository.RepoParticipanti">
+        <constructor-arg index="0" name="prop" ref="jdbcProps"/>
+        <constructor-arg index="1" name="repoProbe" ref="repoProbe"/>
+        <constructor-arg index="2" name="val" ref="valParticipanti"/>
+    </bean>
+    <bean id="valInscrieri" class="validator.ValInscriere">
+        <property name="repoInscrieri" ref="repoInscrieri"/>
+    </bean>
+    <bean id="repoInscrieri" class="repository.RepoInscrieri">
+        <constructor-arg name="prop" ref="jdbcProps"/>
+        <constructor-arg name="repopa" ref="repoParticipanti"/>
+        <constructor-arg name="repopr" ref="repoProbe"/>
+        <constructor-arg name="val" ref="valInscrieri"/>
+    </bean>
+    <bean id="service" class="service.Service">
+        <constructor-arg name="repoIns" ref="repoInscrieri"/>
+    </bean>
+</beans>

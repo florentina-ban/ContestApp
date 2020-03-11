@@ -41,7 +41,7 @@ public class MainApp extends Application {
             ValInscriere valInscriere=new ValInscriere();
             RepoInscrieri repoInscrieri = new RepoInscrieri(properties,repoParticipanti,repoProbe,valInscriere);
             valInscriere.setRepoInscrieri(repoInscrieri);
-            Service service = new Service(repoParticipanti, repoInscrieri, repoProbe);
+            Service service = new Service(repoInscrieri);
 
             primaryStage.setTitle("Concurs");
             FXMLLoader loader=new FXMLLoader(getClass().getResource("view.fxml"));

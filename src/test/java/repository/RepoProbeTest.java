@@ -2,6 +2,8 @@ package repository;
 
 import domain.Proba;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import utils.ConnectionHelper;
 
 import java.io.FileInputStream;
@@ -14,30 +16,17 @@ public class RepoProbeTest {
 
     @Test
     public void cauta() {
-        Properties properties=new Properties();
-        try {
-           //String filePath=this.getClass().getResource("\\resoures\\configTest.properties").getPath();
-            properties.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(properties);
-            RepoProbe repoProbe=new RepoProbe(properties,repoCategVarsta);
-            Proba proba=repoProbe.cauta(2);
-            assertEquals(proba.getNume(),"1000m");
-            assertEquals(proba.getCategVarsta().getNume(),"12-15");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ApplicationContext factory = new ClassPathXmlApplicationContext("classpath:springConfigTest.xml");
+        RepoProbe repoProbe = factory.getBean(RepoProbe.class);
+        Proba proba = repoProbe.cauta(2);
+        assertEquals(proba.getNume(), "1000m");
+        assertEquals(proba.getCategVarsta().getNume(), "12-15");
     }
+
     @Test
-    public void getAll(){
-            Properties properties=new Properties();
-            try {
-                //String filePath=this.getClass().getResource("\\resoures\\configTest.properties").getPath();
-                properties.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-                RepoCategVarsta repoCategVarsta=new RepoCategVarsta(properties);
-                RepoProbe repoProbe=new RepoProbe(properties,repoCategVarsta);
-                assertEquals(repoProbe.getAll().size(),9);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void getAll() {
+        ApplicationContext factory = new ClassPathXmlApplicationContext("classpath:springConfigTest.xml");
+        RepoProbe repoProbe = factory.getBean(RepoProbe.class);
+        assertEquals(repoProbe.getAll().size(), 9);
     }
 }
