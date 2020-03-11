@@ -1,6 +1,9 @@
 package repository;
 
 import domain.CategVarsta;
+import myException.RepoException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utils.ConnectionHelper;
 
 import java.sql.Connection;
@@ -13,13 +16,16 @@ import java.util.Properties;
 
 public class RepoCategVarsta implements Repo<CategVarsta> {
     ConnectionHelper connectionHelper;
+    private static final Logger logger= LogManager.getLogger(RepoCategVarsta.class.getName());
 
     public  RepoCategVarsta(Properties props){
+        logger.traceEntry("initializing properties with {}",props);
         connectionHelper=new ConnectionHelper(props);
     }
     @Override
-    public void adauga(CategVarsta elem) throws Exception {
-
+    public void adauga(CategVarsta elem) throws RepoException {
+        if (2>1)
+            throw new RepoException(" ");
     }
 
     @Override
@@ -29,6 +35,7 @@ public class RepoCategVarsta implements Repo<CategVarsta> {
 
     @Override
     public CategVarsta cauta(int id) {
+        logger.traceEntry("cauta categ varsta cu id: {}",id);
         try(Connection con=connectionHelper.getConnection()){
             try (PreparedStatement selectStm=con.prepareStatement("select * from categvarsta where id=?")){
                 selectStm.setInt(1,id);
@@ -45,6 +52,7 @@ public class RepoCategVarsta implements Repo<CategVarsta> {
 
     @Override
     public Collection<CategVarsta> getAll() {
+        logger.traceEntry("get all");
         ArrayList<CategVarsta> all = new ArrayList<>();
         try (Connection con = connectionHelper.getConnection()) {
             try (PreparedStatement selectStm = con.prepareStatement("select * from categvarsta")) {
@@ -68,6 +76,20 @@ public class RepoCategVarsta implements Repo<CategVarsta> {
 
     @Override
     public int getSize() {
-        return 0;
+        logger.traceEntry("get size");
+        int nr=0;
+        ArrayList<CategVarsta> all = new ArrayList<>();
+        try (Connection con = connectionHelper.getConnection()) {
+            try (PreparedStatement selectStm = con.prepareStatement("select count(*) as nr from categvarsta")) {
+                try (ResultSet rs = selectStm.executeQuery()) {
+                    rs.next();
+                        nr=rs.getInt("nr");
+                    }
+                }
+            }
+         catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return nr;
     }
 }

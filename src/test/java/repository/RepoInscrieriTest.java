@@ -2,10 +2,13 @@ package repository;
 
 import domain.Inscriere;
 import myException.InscrieriException;
+import myException.RepoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import utils.ConnectionHelper;
+import validator.ValInscriere;
+import validator.ValParticipanti;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,7 +21,6 @@ import java.util.Properties;
 import static org.junit.Assert.*;
 
 public class RepoInscrieriTest {
-    //private static Logger logger = LogManager.getLogger();
 
     @Test
     public void adauga() {
@@ -27,8 +29,12 @@ public class RepoInscrieriTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta = new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp, repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
-            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe);
+            ValInscriere vali=new ValInscriere();
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe,vali);
+            valp.setRepoParticipanti(repoParticipanti);
+            vali.setRepoInscrieri(repoInscrieri);
             Inscriere inscriere = new Inscriere(2, 3, 1);
             repoInscrieri.adauga(inscriere);
             assertEquals(repoInscrieri.getSize(), 2);
@@ -51,7 +57,7 @@ public class RepoInscrieriTest {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (InscrieriException e) {
+        } catch (RepoException e) {
             e.printStackTrace();
         }
     }
@@ -63,8 +69,12 @@ public class RepoInscrieriTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta = new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp, repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
-            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe);
+            ValInscriere vali=new ValInscriere();
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe,vali);
+            valp.setRepoParticipanti(repoParticipanti);
+            vali.setRepoInscrieri(repoInscrieri);
             assertEquals(repoInscrieri.getAll().size(), 1);
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,8 +88,12 @@ public class RepoInscrieriTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta = new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp, repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
-            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe);
+            ValInscriere vali=new ValInscriere();
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe,vali);
+            valp.setRepoParticipanti(repoParticipanti);
+            vali.setRepoInscrieri(repoInscrieri);
             assertEquals(repoInscrieri.getSize(), 1);
         } catch (IOException e) {
             e.printStackTrace();
@@ -93,8 +107,12 @@ public class RepoInscrieriTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta = new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp, repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
-            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe);
+            ValInscriere vali=new ValInscriere();
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe,vali);
+            valp.setRepoParticipanti(repoParticipanti);
+            vali.setRepoInscrieri(repoInscrieri);
             Inscriere inscriere = new Inscriere(2, 3, 1);
             repoInscrieri.adauga(inscriere);
             assertEquals(repoInscrieri.getSize(), 2);
@@ -129,8 +147,12 @@ public class RepoInscrieriTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta = new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp, repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
-            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe);
+            ValInscriere vali=new ValInscriere();
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe,vali);
+            valp.setRepoParticipanti(repoParticipanti);
+            vali.setRepoInscrieri(repoInscrieri);
             Inscriere inscriere = repoInscrieri.cauta(1);
             assert (inscriere.getIdPart() == 1);
             assert (inscriere.getIdProba() == 2);
@@ -146,8 +168,12 @@ public class RepoInscrieriTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta = new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp, repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
-            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe);
+            ValInscriere vali=new ValInscriere();
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe,vali);
+            valp.setRepoParticipanti(repoParticipanti);
+            vali.setRepoInscrieri(repoInscrieri);
             assertEquals(repoInscrieri.getParticipantiLaProba(2).size(), 1);
         } catch (IOException e) {
             e.printStackTrace();
@@ -161,8 +187,12 @@ public class RepoInscrieriTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta = new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp, repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
-            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe);
+            ValInscriere vali=new ValInscriere();
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            RepoInscrieri repoInscrieri = new RepoInscrieri(testProp, repoParticipanti, repoProbe,vali);
+            valp.setRepoParticipanti(repoParticipanti);
+            vali.setRepoInscrieri(repoInscrieri);
             assertEquals(repoInscrieri.getProbeLaParticipant(1).size(), 1);
         } catch (IOException e) {
             e.printStackTrace();

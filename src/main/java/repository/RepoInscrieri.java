@@ -7,6 +7,7 @@ import myException.InscrieriException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.ConnectionHelper;
+import validator.ValInscriere;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,23 +19,22 @@ public class RepoInscrieri implements IRepoInscrieri {
     ConnectionHelper connectionHelper;
     RepoParticipanti repoParticipanti;
     RepoProbe repoProbe;
+    ValInscriere valInscriere;
+
     private static final Logger logger= LogManager.getLogger(RepoParticipanti.class.getName());
 
-    public RepoInscrieri(Properties prop,RepoParticipanti repopa,RepoProbe repopr) {
+    public RepoInscrieri(Properties prop,RepoParticipanti repopa,RepoProbe repopr,ValInscriere val) {
+        logger.traceEntry("initializing props with {}",prop);
         this.connectionHelper = new ConnectionHelper(prop);
         this.repoParticipanti=repopa;
         this.repoProbe=repopr;
-    }
-
-    public void valideaza(Inscriere inscriere) throws InscrieriException{
-        if(this.getProbeLaParticipant(inscriere.getIdPart()).size()>=2)
-            throw new InscrieriException("candidatul e deja inscris la 2 probe");
+        this.valInscriere=val;
     }
 
     @Override
     public void adauga(Inscriere elem) throws InscrieriException {
         logger.traceEntry("adauga inscriere {}",elem);
-        valideaza(elem);
+        valInscriere.valideaza(elem);
         try (Connection connection = connectionHelper.getConnection();) {
             try (PreparedStatement insStat = connection.prepareStatement("insert into partprobe (IdPart, IdProba) " +
                     "values (?,?);");) {
@@ -45,7 +45,6 @@ public class RepoInscrieri implements IRepoInscrieri {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override

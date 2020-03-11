@@ -7,6 +7,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import repository.*;
 import service.Service;
+import validator.ValInscriere;
+import validator.ValParticipanti;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -28,11 +30,18 @@ public class MainApp extends Application {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(properties);
+
+            RepoCategVarsta repoCategVarsta = new RepoCategVarsta(properties);
             RepoProbe repoProbe = new RepoProbe(properties,repoCategVarsta);
-            RepoParticipanti repoParticipanti=new RepoParticipanti(properties,repoProbe);
-            RepoInscrieri repoInscrieri=new RepoInscrieri(properties,repoParticipanti,repoProbe);
-            Service service=new Service(repoParticipanti,repoInscrieri,repoProbe);
+            ValParticipanti valParticipanti=new ValParticipanti();
+
+            RepoParticipanti repoParticipanti = new RepoParticipanti(properties, repoProbe,valParticipanti);
+            valParticipanti.setRepoParticipanti(repoParticipanti);
+
+            ValInscriere valInscriere=new ValInscriere();
+            RepoInscrieri repoInscrieri = new RepoInscrieri(properties,repoParticipanti,repoProbe,valInscriere);
+            valInscriere.setRepoInscrieri(repoInscrieri);
+            Service service = new Service(repoParticipanti, repoInscrieri, repoProbe);
 
             primaryStage.setTitle("Concurs");
             FXMLLoader loader=new FXMLLoader(getClass().getResource("view.fxml"));
@@ -61,12 +70,15 @@ public class MainApp extends Application {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+/*
             RepoCategVarsta repoCategVarsta=new RepoCategVarsta(properties);
             RepoProbe repoProbe = new RepoProbe(properties,repoCategVarsta);
             RepoParticipanti repoParticipanti = new RepoParticipanti(properties, repoProbe);
             RepoInscrieri repoInscrieri = new RepoInscrieri(properties,repoParticipanti,repoProbe);
             return new Service(repoParticipanti, repoInscrieri, repoProbe);
+
+ */
+            return null;
         }
 
 }

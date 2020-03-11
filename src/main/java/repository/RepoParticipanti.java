@@ -1,10 +1,12 @@
 package repository;
 
 import domain.Participant;
-import domain.Proba;
+import myException.RepoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.graalvm.compiler.asm.sparc.SPARCAddress;
 import utils.ConnectionHelper;
+import validator.Validator;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,15 +16,18 @@ import java.util.Properties;
 public class RepoParticipanti implements Repo<Participant> {
     ConnectionHelper connectionHelper;
     private static final Logger logger= LogManager.getLogger(RepoParticipanti.class.getName());
+    Validator<Participant> valiParticipant;
 
-    public RepoParticipanti(Properties prop, RepoProbe repoProbe) {
+    public RepoParticipanti(Properties prop, RepoProbe repoProbe,Validator<Participant> val) {
         logger.info("initializing RepoParticipanti with properties {}",prop);
         connectionHelper=new ConnectionHelper(prop);
+        this.valiParticipant=val;
     }
 
     @Override
-    public void adauga(Participant elem) {
+    public void adauga(Participant elem) throws RepoException {
         logger.traceEntry("adauga participat {}",elem);
+        valiParticipant.valideaza(elem);
         try (Connection connection=connectionHelper.getConnection();){
             try (PreparedStatement preparedStatement=
                          connection.prepareStatement("insert into participanti (nume, varsta) VALUES (?,?);");) {
@@ -56,24 +61,18 @@ public class RepoParticipanti implements Repo<Participant> {
             e.printStackTrace();
         }
     }
-/*
-    @Override
+
     public Participant cautaNume(String nume) {
         logger.traceEntry("cauta participant cu nume {}",nume);
         Participant participant=null;
         try (Connection connection = connectionHelper.getConnection()) {
-            try (PreparedStatement findStm = connection.prepareStatement("select p.id,p.nume,p.varsta,probe.idProba,probe.numeProba as proba,cat.nume as categVarsta from participanti p \n" +
-                    "inner join partprobe as pr on p.id=IdPart\n" +
-                    "inner join probe on probe.IdProba=pr.IdProba\n" +
-                    "inner join categvarsta as cat on cat.id=probe.idCateg where p.nume=?;");) {
+            try (PreparedStatement findStm = connection.prepareStatement("select p.id,p.nume,p.varsta from participanti p where p.nume=?;");) {
                 findStm.setString(1, nume);
                 try (ResultSet rs = findStm.executeQuery()) {
-                    rs.next();
-                    participant = new Participant(rs.getInt("id"), rs.getString("nume"), rs.getInt("varsta"));
-                    participant.addProba(repoProbe.cauta(rs.getInt("idProba")));
-                    while (rs.next()) {
-                        participant.addProba(repoProbe.cauta(rs.getInt("idProba")));
-                    }
+                    if (!rs.next())
+                        return participant;
+                    else
+                        participant = new Participant(rs.getInt("id"), rs.getString("nume"), rs.getInt("varsta"));
                 }
             }
         } catch (SQLException e) {
@@ -81,7 +80,7 @@ public class RepoParticipanti implements Repo<Participant> {
         }
         return participant;
     }
-*/
+
     @Override
     public Participant cauta(int id) {
         logger.traceEntry("cauta participant cu id {}",id);

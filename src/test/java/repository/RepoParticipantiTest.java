@@ -1,10 +1,12 @@
 package repository;
 
 import domain.Participant;
+import myException.RepoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import utils.ConnectionHelper;
+import validator.ValParticipanti;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,7 +26,9 @@ public class RepoParticipantiTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            valp.setRepoParticipanti(repoParticipanti);
             Participant participant = new Participant(2, "Ionel", 8);
             repoParticipanti.adauga(participant);
             assertEquals(repoParticipanti.getSize(), 2);
@@ -50,6 +54,8 @@ public class RepoParticipantiTest {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
+        }catch (RepoException e){
+            e.printStackTrace();
         }
     }
 
@@ -61,7 +67,9 @@ public class RepoParticipantiTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            valp.setRepoParticipanti(repoParticipanti);
             Participant participant = repoParticipanti.cauta(1);
             assertEquals(participant.getNume(), "Gigela");
         } catch (FileNotFoundException e) {
@@ -79,7 +87,9 @@ public class RepoParticipantiTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            valp.setRepoParticipanti(repoParticipanti);
             assertEquals(repoParticipanti.getAll().size(),1);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -96,7 +106,8 @@ public class RepoParticipantiTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
             assertEquals(repoParticipanti.getAll().size(),1);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -113,7 +124,9 @@ public class RepoParticipantiTest {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
             RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
             RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
+            ValParticipanti valp=new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe,valp);
+            valp.setRepoParticipanti(repoParticipanti);
             Connection connection = new ConnectionHelper(testProp).getConnection();
             Participant participant = repoParticipanti.cauta(1);
             participant.setNume("Gigel");
@@ -140,30 +153,26 @@ public class RepoParticipantiTest {
         Properties testProp = new Properties();
         try {
             testProp.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\test\\resources\\configTest.properties"));
-            RepoCategVarsta repoCategVarsta=new RepoCategVarsta(testProp);
-            RepoProbe repoProbe = new RepoProbe(testProp,repoCategVarsta);
-            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe);
+            RepoCategVarsta repoCategVarsta = new RepoCategVarsta(testProp);
+            RepoProbe repoProbe = new RepoProbe(testProp, repoCategVarsta);
+            ValParticipanti valp = new ValParticipanti();
+            RepoParticipanti repoParticipanti = new RepoParticipanti(testProp, repoProbe, valp);
+            valp.setRepoParticipanti(repoParticipanti);
 
-            Participant participant=new Participant(2,"Ionel",8);
+            Participant participant = new Participant(2, "Ionel", 8);
             repoParticipanti.adauga(participant);
 
-            Connection connection = new ConnectionHelper(testProp).getConnection();
-            try (PreparedStatement findStm = connection.prepareStatement(
-                    "select id from participanti where nume=?;");) {
-                findStm.setString(1, "Ionel");
-                try (ResultSet rs = findStm.executeQuery()) {
-                    rs.next();
-                    int idPart = rs.getInt("id");
-                    repoParticipanti.sterge(idPart);
-                    assertEquals(repoParticipanti.getSize(), 1);
-                }
-            }
+            Participant participant1 = repoParticipanti.cautaNume("Ionel");
+            repoParticipanti.sterge(participant1.getId());
+            assertEquals(repoParticipanti.getSize(), 1);
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }catch (IOException e) {
-                e.printStackTrace();
-        }catch (SQLException e) {
             e.printStackTrace();
+        }catch (RepoException ex){
+            ex.printStackTrace();
         }
     }
 }

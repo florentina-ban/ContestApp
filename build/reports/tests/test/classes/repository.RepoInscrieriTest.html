@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.898s</div>
+<div class="counter">2.394s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">adauga</td>
-<td class="success">0.203s</td>
+<td class="success">0.232s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">cauta</td>
-<td class="success">0.021s</td>
+<td class="success">0.026s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getAll</td>
-<td class="success">0.024s</td>
+<td class="success">0.028s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -99,17 +99,17 @@
 </tr>
 <tr>
 <td class="success">getProbeLaParticipant</td>
-<td class="success">1.365s</td>
+<td class="success">1.817s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getSize</td>
-<td class="success">0.038s</td>
+<td class="success">0.028s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">sterge</td>
-<td class="success">0.192s</td>
+<td class="success">0.208s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -117,27 +117,56 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:27:50.173 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
-14:27:50.189 [Test worker] TRACE repository.RepoParticipanti - Enter cauta probe pt participantul cu id: 1
-14:27:50.948 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
-14:27:50.948 [Test worker] TRACE repository.RepoParticipanti - Enter adauga inscriere domain.Inscriere@f75c33e
-14:27:50.948 [Test worker] TRACE repository.RepoParticipanti - Enter cauta probe pt participantul cu id: 1
-14:27:51.073 [Test worker] TRACE repository.RepoParticipanti - Enter getSize
-14:27:51.136 [Test worker] TRACE repository.RepoParticipanti - Enter sterge inregistrare cu id 17
-14:27:51.151 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
-14:27:51.151 [Test worker] TRACE repository.RepoParticipanti - Enter get all
-14:27:51.182 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
-14:27:51.182 [Test worker] TRACE repository.RepoParticipanti - Enter adauga inscriere domain.Inscriere@13baf1d4
-14:27:51.182 [Test worker] TRACE repository.RepoParticipanti - Enter cauta probe pt participantul cu id: 1
-14:27:51.292 [Test worker] TRACE repository.RepoParticipanti - Enter getSize
-14:27:51.339 [Test worker] TRACE repository.RepoParticipanti - Enter sterge inregistrare cu id 18
-14:27:51.370 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
-14:27:51.370 [Test worker] TRACE repository.RepoParticipanti - Enter cauta participanti la proba cu id: 2
-14:27:51.401 [Test worker] TRACE repository.RepoParticipanti - Enter cauta participant cu id 1
-14:27:51.432 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
-14:27:51.432 [Test worker] TRACE repository.RepoParticipanti - Enter getSize
-14:27:51.464 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
-14:27:51.464 [Test worker] TRACE repository.RepoParticipanti - Enter cauta inregistrare cu id 1
+<pre>09:32:20.522 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:20.534 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:20.542 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:20.545 [Test worker] TRACE repository.RepoParticipanti - Enter initializing props with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:20.545 [Test worker] TRACE repository.RepoParticipanti - Enter cauta probe pt participantul cu id: 1
+09:32:21.249 [Test worker] TRACE repository.RepoProbe - Enter cauta proba cu id 2
+09:32:21.280 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 3
+09:32:21.327 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.327 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.327 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.327 [Test worker] TRACE repository.RepoParticipanti - Enter initializing props with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.327 [Test worker] TRACE repository.RepoParticipanti - Enter adauga inscriere domain.Inscriere@22495814
+09:32:21.327 [Test worker] TRACE validator.ValInscriere - Enter valideaza nr de inscrieri pt participant
+09:32:21.327 [Test worker] TRACE repository.RepoParticipanti - Enter cauta probe pt participantul cu id: 1
+09:32:21.358 [Test worker] TRACE repository.RepoProbe - Enter cauta proba cu id 2
+09:32:21.405 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 3
+09:32:21.452 [Test worker] TRACE repository.RepoParticipanti - Enter getSize
+09:32:21.515 [Test worker] TRACE repository.RepoParticipanti - Enter sterge inregistrare cu id 27
+09:32:21.546 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.546 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.561 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.561 [Test worker] TRACE repository.RepoParticipanti - Enter initializing props with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.561 [Test worker] TRACE repository.RepoParticipanti - Enter get all
+09:32:21.577 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.577 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.577 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.577 [Test worker] TRACE repository.RepoParticipanti - Enter initializing props with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.577 [Test worker] TRACE repository.RepoParticipanti - Enter adauga inscriere domain.Inscriere@2dc337ee
+09:32:21.577 [Test worker] TRACE validator.ValInscriere - Enter valideaza nr de inscrieri pt participant
+09:32:21.577 [Test worker] TRACE repository.RepoParticipanti - Enter cauta probe pt participantul cu id: 1
+09:32:21.608 [Test worker] TRACE repository.RepoProbe - Enter cauta proba cu id 2
+09:32:21.639 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 3
+09:32:21.702 [Test worker] TRACE repository.RepoParticipanti - Enter getSize
+09:32:21.749 [Test worker] TRACE repository.RepoParticipanti - Enter sterge inregistrare cu id 28
+09:32:21.796 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.796 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.796 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.796 [Test worker] TRACE repository.RepoParticipanti - Enter initializing props with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.796 [Test worker] TRACE repository.RepoParticipanti - Enter cauta participanti la proba cu id: 2
+09:32:21.811 [Test worker] TRACE repository.RepoParticipanti - Enter cauta participant cu id 1
+09:32:21.843 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.843 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.843 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.843 [Test worker] TRACE repository.RepoParticipanti - Enter initializing props with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.843 [Test worker] TRACE repository.RepoParticipanti - Enter getSize
+09:32:21.880 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.880 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.880 [Test worker] INFO  repository.RepoParticipanti - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.881 [Test worker] TRACE repository.RepoParticipanti - Enter initializing props with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:21.881 [Test worker] TRACE repository.RepoParticipanti - Enter cauta inregistrare cu id 1
 </pre>
 </span>
 </div>
@@ -149,7 +178,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.2.1</a> at Mar 9, 2020, 2:27:52 PM</p>
+<a href="http://www.gradle.org">Gradle 5.2.1</a> at Mar 11, 2020, 9:32:22 AM</p>
 </div>
 </div>
 </body>

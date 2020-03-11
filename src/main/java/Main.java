@@ -17,6 +17,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import service.Service;
+import validator.ValInscriere;
+import validator.ValParticipanti;
+import validator.Validator;
 
 public class Main{
   public static void main(String[] args) {
@@ -31,8 +34,14 @@ public class Main{
 
       RepoCategVarsta repoCategVarsta = new RepoCategVarsta(properties);
       RepoProbe repoProbe = new RepoProbe(properties,repoCategVarsta);
-      RepoParticipanti repoParticipanti = new RepoParticipanti(properties, repoProbe);
-      RepoInscrieri repoInscrieri = new RepoInscrieri(properties,repoParticipanti,repoProbe);
+      ValParticipanti valParticipanti=new ValParticipanti();
+
+      RepoParticipanti repoParticipanti = new RepoParticipanti(properties, repoProbe,valParticipanti);
+      valParticipanti.setRepoParticipanti(repoParticipanti);
+
+      ValInscriere valInscriere=new ValInscriere();
+      RepoInscrieri repoInscrieri = new RepoInscrieri(properties,repoParticipanti,repoProbe,valInscriere);
+      valInscriere.setRepoInscrieri(repoInscrieri);
       Service service = new Service(repoParticipanti, repoInscrieri, repoProbe);
 
 

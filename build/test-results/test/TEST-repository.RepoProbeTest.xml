@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="repository.RepoProbeTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-03-09T12:27:52" hostname="DESKTOP-JGO467Q" time="0.284">
+<testsuite name="repository.RepoProbeTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-03-11T07:32:22" hostname="DESKTOP-JGO467Q" time="0.273">
   <properties/>
-  <testcase name="getAll" classname="repository.RepoProbeTest" time="0.235"/>
-  <testcase name="cauta" classname="repository.RepoProbeTest" time="0.049"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="getAll" classname="repository.RepoProbeTest" time="0.222"/>
+  <testcase name="cauta" classname="repository.RepoProbeTest" time="0.051"/>
+  <system-out><![CDATA[09:32:22.512 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:22.512 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:22.512 [Test worker] TRACE repository.RepoProbe - Enter getAll
+09:32:22.544 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 2
+09:32:22.575 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 3
+09:32:22.590 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 1
+09:32:22.622 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 2
+09:32:22.637 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 3
+09:32:22.653 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 3
+09:32:22.668 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 1
+09:32:22.700 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 2
+09:32:22.715 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 3
+09:32:22.747 [Test worker] TRACE repository.RepoCategVarsta - Enter initializing properties with {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:22.747 [Test worker] INFO  repository.RepoProbe - initializing RepoParticipanti with properties {mySql.url=jdbc:mysql://localhost:3306/contesttest, password=lasPalmeras18, mySql.jdbcDriver=com.mysql.cj.jdbc.Driver, user=root}
+09:32:22.747 [Test worker] TRACE repository.RepoProbe - Enter cauta proba cu id 2
+09:32:22.762 [Test worker] TRACE repository.RepoCategVarsta - Enter cauta categ varsta cu id: 3
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
