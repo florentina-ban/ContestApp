@@ -13,7 +13,7 @@ import java.util.*;
 public class RepoProbe implements Repo<Proba> {
     private ConnectionHelper connectionHelper;
     private static final Logger  logger= LogManager.getLogger(RepoProbe.class.getName());
-    RepoCategVarsta repoCategVarsta;
+    public RepoCategVarsta repoCategVarsta;
 
     public RepoProbe(Properties properties, RepoCategVarsta rep)  {
         logger.info("initializing RepoParticipanti with properties {}",properties);

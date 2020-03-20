@@ -1,18 +1,31 @@
 package domain;
 
-import java.util.ArrayList;
-
 public class Participant {
     private Integer id;
     private String nume;
     private int varsta;
+    private int nrProbe;
 
     public Participant(Integer id, String nume, int varsta) {
         this.id = id;
         this.nume = nume;
         this.varsta = varsta;
+        this.nrProbe=0;
+    }
+    public Participant(Integer id, String nume, int varsta,int nrProb) {
+        this.id = id;
+        this.nume = nume;
+        this.varsta = varsta;
+        this.nrProbe=nrProb;
     }
 
+    public int getNrProbe() {
+        return nrProbe;
+    }
+
+    public void setNrProbe(int nrProbe) {
+        this.nrProbe = nrProbe;
+    }
 
     @Override
     public String toString() {

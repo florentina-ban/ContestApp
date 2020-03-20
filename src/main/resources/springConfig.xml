@@ -31,5 +31,11 @@
     </bean>
     <bean id="service" class="service.Service">
         <constructor-arg name="repoIns" ref="repoInscrieri"/>
+        <constructor-arg name="repoCateg" ref="repoCateg"/>
+        <constructor-arg name="repoPart" ref="repoParticipanti"/>
+        <constructor-arg name="repoProbe" ref="repoProbe"/>
+    </bean>
+    <bean id="logServ" class="service.LogInService">
+        <constructor-arg name="props" ref="jdbcProps"></constructor-arg>
     </bean>
 </beans>

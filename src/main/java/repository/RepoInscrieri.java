@@ -17,8 +17,8 @@ import java.util.Properties;
 
 public class RepoInscrieri implements IRepoInscrieri {
     ConnectionHelper connectionHelper;
-    RepoParticipanti repoParticipanti;
-    RepoProbe repoProbe;
+    public RepoParticipanti repoParticipanti;
+    public RepoProbe repoProbe;
     ValInscriere valInscriere;
 
     private static final Logger logger= LogManager.getLogger(RepoParticipanti.class.getName());

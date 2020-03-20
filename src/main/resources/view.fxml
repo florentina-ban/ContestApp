@@ -1,12 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
-      <Button layoutX="92.0" layoutY="94.0" mnemonicParsing="false" text="6-8" />
-      <Button layoutX="259.0" layoutY="94.0" mnemonicParsing="false" text="9-11" />
-      <Button layoutX="398.0" layoutY="94.0" mnemonicParsing="false" text="12-15" />
+      <TabPane prefHeight="450.0" prefWidth="690.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Vizualizeaza">
+            <content>
+              <AnchorPane fx:id="mainAnchor" minHeight="0.0" minWidth="0.0" prefHeight="418.0" prefWidth="600.0">
+                     <children>
+                        <AnchorPane fx:id="probeAnchor" layoutX="110.0" layoutY="33.0" prefHeight="217.0" prefWidth="114.0" AnchorPane.leftAnchor="110.0" AnchorPane.topAnchor="33.0">
+                           <children>
+                              <Button fx:id="backProbe" layoutX="79.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#backProbeFunction" text="&lt;&lt;" />
+                              <TableView fx:id="tabelProbe" layoutX="2.0" layoutY="52.0" prefHeight="146.0" prefWidth="110.0">
+                                <columns>
+                                  <TableColumn fx:id="colProbe" prefWidth="107.0" text="Probe" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                        <TableView fx:id="tabelPart" layoutX="301.0" layoutY="110.0" prefHeight="200.0" prefWidth="262.0">
+                          <columns>
+                            <TableColumn fx:id="colIdPart" prefWidth="40.00006103515625" text="Id" />
+                            <TableColumn fx:id="colNumePart" prefWidth="82.4000244140625" text="Nume" />
+                              <TableColumn fx:id="colVarstaPart" prefWidth="64.79998779296875" text="Varsta" />
+                              <TableColumn fx:id="colNrProbe" prefWidth="72.0" text="NrProbe" />
+                          </columns>
+                        </TableView>
+                        <AnchorPane fx:id="categAnchor" layoutY="48.0" maxHeight="200.0" minHeight="162.0" prefHeight="197.0" prefWidth="110.0">
+                           <children>
+                              <TableView fx:id="tabelCateg" layoutY="36.0" prefHeight="146.0" prefWidth="110.0">
+                                <columns>
+                                  <TableColumn fx:id="colCateg" prefWidth="107.0" text="Categorii Varsta" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="backCateg" layoutX="77.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#backCategFunction" text="&lt;&lt;" />
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="showCategAnchor" mnemonicParsing="false" onMouseClicked="#showAnchorCategFunction" text="&gt;&gt;" />
+                        <Label layoutX="314.0" layoutY="70.0" prefHeight="30.0" prefWidth="84.0" text="Participant" />
+                        <Button layoutX="578.0" layoutY="349.0" mnemonicParsing="false" onMouseClicked="#logOut" prefHeight="26.0" prefWidth="87.0" text="Log Out" />
+                        <TextField fx:id="searchTextField" layoutX="374.0" layoutY="72.0" prefHeight="26.0" prefWidth="190.0" />
+                        <CheckBox fx:id="allCheck" layoutX="424.0" layoutY="39.0" mnemonicParsing="false" text="Arata Toti Participantii" />
+                        <TextField fx:id="proba1" layoutX="593.0" layoutY="133.0" prefHeight="26.0" prefWidth="67.0" />
+                        <TextField fx:id="proba2" layoutX="593.0" layoutY="197.0" prefHeight="26.0" prefWidth="66.0" />
+                        <Label layoutX="580.0" layoutY="110.0" prefHeight="20.0" prefWidth="42.0" text="Proba1:" />
+                        <Label layoutX="584.0" layoutY="177.0" prefHeight="20.0" prefWidth="42.0" text="Proba2:" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

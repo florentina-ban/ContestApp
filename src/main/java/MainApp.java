@@ -1,14 +1,14 @@
 import controller.Controller;
-import domain.CategVarsta;
+import controller.LogController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import repository.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.LogInService;
 import service.Service;
-import validator.ValInscriere;
-import validator.ValParticipanti;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,49 +16,27 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class MainApp extends Application {
+
     public static void main(String[] args){
         launch(args);
     }
 
         @Override
         public void start(Stage primaryStage) throws Exception {
-            Properties properties=new Properties();
-            try {
-                properties.load(new FileInputStream("C:\\Users\\Flore\\Desktop\\info18\\MPP\\gitApps\\ContestApp\\src\\main\\config.properties"));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            RepoCategVarsta repoCategVarsta = new RepoCategVarsta(properties);
-            RepoProbe repoProbe = new RepoProbe(properties,repoCategVarsta);
-            ValParticipanti valParticipanti=new ValParticipanti();
-
-            RepoParticipanti repoParticipanti = new RepoParticipanti(properties, repoProbe,valParticipanti);
-            valParticipanti.setRepoParticipanti(repoParticipanti);
-
-            ValInscriere valInscriere=new ValInscriere();
-            RepoInscrieri repoInscrieri = new RepoInscrieri(properties,repoParticipanti,repoProbe,valInscriere);
-            valInscriere.setRepoInscrieri(repoInscrieri);
-            Service service = new Service(repoInscrieri);
+            ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:springConfig.xml");
+            LogInService logService = applicationContext.getBean(LogInService.class);
 
             primaryStage.setTitle("Concurs");
-            FXMLLoader loader=new FXMLLoader(getClass().getResource("view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("loginView.fxml"));
             AnchorPane myPane = loader.load();
-            Controller ctrl=loader.getController();
+            LogController ctrl = loader.getController();
+            ctrl.setService(logService);
 
-            ctrl.setService(getService());
             Scene myScene = new Scene(myPane);
             primaryStage.setScene(myScene);
 
-
-//        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-//            public void handle(WindowEvent we) {
-//                //  System.out.println("Stage is closing");
-//                ctrl.close();
-//            }
-//        });
+            ctrl.addScene("main",myPane);
+            ctrl.setMain(myScene);
             primaryStage.show();
         }
         private Service getService() {

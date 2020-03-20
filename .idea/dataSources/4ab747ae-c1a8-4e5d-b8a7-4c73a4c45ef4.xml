@@ -1116,180 +1116,176 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="280" parent="2" name="categvarsta"/>
-    <table id="281" parent="2" name="participanti"/>
-    <table id="282" parent="2" name="partprobe"/>
-    <table id="283" parent="2" name="probe"/>
-    <table id="284" parent="3" name="categvarsta"/>
-    <table id="285" parent="3" name="participanti"/>
-    <table id="286" parent="3" name="partprobe"/>
-    <table id="287" parent="3" name="probe"/>
-    <column id="288" parent="280" name="id">
+    <table id="281" parent="2" name="logindata"/>
+    <table id="282" parent="2" name="participanti"/>
+    <table id="283" parent="2" name="partprobe"/>
+    <table id="284" parent="2" name="probe"/>
+    <table id="285" parent="3" name="categvarsta"/>
+    <table id="286" parent="3" name="participanti"/>
+    <table id="287" parent="3" name="partprobe"/>
+    <table id="288" parent="3" name="probe"/>
+    <column id="289" parent="280" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="280" name="nume">
+    <column id="290" parent="280" name="nume">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="280" name="varstaStart">
+    <column id="291" parent="280" name="varstaStart">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="280" name="varstaEnd">
+    <column id="292" parent="280" name="varstaEnd">
       <Position>4</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="292" parent="280" name="PRIMARY">
+    <key id="293" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="293" parent="281" name="Id">
+    <column id="294" parent="281" name="user">
       <Position>1</Position>
-      <DataType>int|0s</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="281" name="nume">
+    <column id="295" parent="281" name="pass">
       <Position>2</Position>
-      <DataType>varchar(45)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="295" parent="281" name="varsta">
-      <Position>3</Position>
-      <DataType>int|0s</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="296" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
+      <ColNames>user</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="297" parent="282" name="Id">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="298" parent="282" name="nume">
+      <Position>2</Position>
+      <DataType>varchar(45)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="299" parent="282" name="varsta">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="300" parent="282" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
       <ColNames>Id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="297" parent="282" name="IdPart">
+    <column id="301" parent="283" name="IdPart">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="298" parent="282" name="IdProba">
+    <column id="302" parent="283" name="IdProba">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="299" parent="282" name="NrInscriere">
+    <column id="303" parent="283" name="NrInscriere">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="300" parent="282" name="idPart_idx">
+    <index id="304" parent="283" name="idPart_idx">
       <ColNames>IdPart</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="301" parent="282" name="idProba_idx">
+    <index id="305" parent="283" name="idProba_idx">
       <ColNames>IdProba</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="302" parent="282" name="PRIMARY">
+    <key id="306" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>NrInscriere</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="303" parent="282" name="idPart">
+    <foreign-key id="307" parent="283" name="idPart">
       <ColNames>IdPart</ColNames>
       <RefTableName>participanti</RefTableName>
       <RefColNames>Id</RefColNames>
     </foreign-key>
-    <foreign-key id="304" parent="282" name="idProba">
+    <foreign-key id="308" parent="283" name="idProba">
       <ColNames>IdProba</ColNames>
       <RefTableName>probe</RefTableName>
       <RefColNames>idProba</RefColNames>
     </foreign-key>
-    <column id="305" parent="283" name="numeProba">
+    <column id="309" parent="284" name="numeProba">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="283" name="idCateg">
+    <column id="310" parent="284" name="idCateg">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="283" name="idProba">
+    <column id="311" parent="284" name="idProba">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="308" parent="283" name="idCateg_idx">
+    <index id="312" parent="284" name="idCateg_idx">
       <ColNames>idCateg</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="309" parent="283" name="PRIMARY">
+    <key id="313" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idProba</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="310" parent="283" name="idCateg">
+    <foreign-key id="314" parent="284" name="idCateg">
       <ColNames>idCateg</ColNames>
       <RefTableName>categvarsta</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="311" parent="284" name="id">
+    <column id="315" parent="285" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="284" name="nume">
+    <column id="316" parent="285" name="nume">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="284" name="varstaStart">
+    <column id="317" parent="285" name="varstaStart">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="284" name="varstaEnd">
+    <column id="318" parent="285" name="varstaEnd">
       <Position>4</Position>
-      <DataType>int|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <key id="315" parent="284" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="316" parent="285" name="id">
-      <Position>1</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="317" parent="285" name="nume">
-      <Position>2</Position>
-      <DataType>varchar(45)|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="318" parent="285" name="varsta">
-      <Position>3</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1298,75 +1294,97 @@
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="320" parent="286" name="nrInscriere">
+    <column id="320" parent="286" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="321" parent="286" name="idPart">
+    <column id="321" parent="286" name="nume">
       <Position>2</Position>
-      <DataType>int|0s</DataType>
+      <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="286" name="idProba">
+    <column id="322" parent="286" name="varsta">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="323" parent="286" name="idPart_idx">
+    <key id="323" parent="286" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="324" parent="287" name="nrInscriere">
+      <Position>1</Position>
+      <DataType>int|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="325" parent="287" name="idPart">
+      <Position>2</Position>
+      <DataType>int|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="326" parent="287" name="idProba">
+      <Position>3</Position>
+      <DataType>int|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="327" parent="287" name="idPart_idx">
       <ColNames>idPart</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="324" parent="286" name="idProba_idx">
+    <index id="328" parent="287" name="idProba_idx">
       <ColNames>idProba</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="325" parent="286" name="PRIMARY">
+    <key id="329" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>nrInscriere</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="326" parent="286" name="idPart">
+    <foreign-key id="330" parent="287" name="idPart">
       <ColNames>idPart</ColNames>
       <RefTableName>participanti</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="327" parent="286" name="idProba">
+    <foreign-key id="331" parent="287" name="idProba">
       <ColNames>idProba</ColNames>
       <RefTableName>probe</RefTableName>
       <RefColNames>idProba</RefColNames>
     </foreign-key>
-    <column id="328" parent="287" name="numeProba">
+    <column id="332" parent="288" name="numeProba">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="287" name="idProba">
+    <column id="333" parent="288" name="idProba">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="287" name="idCateg">
+    <column id="334" parent="288" name="idCateg">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="331" parent="287" name="idCateg_idx">
+    <index id="335" parent="288" name="idCateg_idx">
       <ColNames>idCateg</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="332" parent="287" name="PRIMARY">
+    <key id="336" parent="288" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idProba
 idCateg</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="333" parent="287" name="idCateg">
+    <foreign-key id="337" parent="288" name="idCateg">
       <ColNames>idCateg</ColNames>
       <RefTableName>categvarsta</RefTableName>
       <RefColNames>id</RefColNames>
