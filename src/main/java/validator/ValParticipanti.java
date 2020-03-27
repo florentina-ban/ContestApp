@@ -20,8 +20,16 @@ public class ValParticipanti implements Validator<Participant> {
     @Override
     public void valideaza(Participant particip) throws ParticipException {
         logger.traceEntry("valideaza participant {}",particip);
+        String errorString="";
+
+        if (particip.getNume().trim().length()==0)
+            errorString+="participantul nu are nume";
+        if (particip.getVarsta()<6 || particip.getVarsta()>15)
+            errorString+="nu exista probe pentru aceasta categorie de varsta";
         Participant part=repoParticipanti.cautaNume(particip.getNume());
         if (part!=null)
-            throw new ParticipException("mai exista un participant cu numele: "+part.getNume());
+            errorString+="mai exista un participant cu numele: "+part.getNume();
+        if (errorString.length()>5)
+            throw new ParticipException(errorString);
     }
 }

@@ -20,8 +20,7 @@ public class Proba {
         if (o == null || getClass() != o.getClass()) return false;
         Proba proba = (Proba) o;
         return getIdProba() == proba.getIdProba() &&
-                getNume().equals(proba.getNume()) &&
-                getCategVarsta().equals(proba.getCategVarsta());
+                getNume().equals(proba.getNume());
     }
 
     @Override

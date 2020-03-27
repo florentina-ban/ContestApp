@@ -2,7 +2,6 @@ package repository;
 
 import domain.CategVarsta;
 import domain.Proba;
-import myException.RepoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import utils.ConnectionHelper;
@@ -22,7 +21,7 @@ public class RepoProbe implements Repo<Proba> {
     }
 
     @Override
-    public Collection<Proba> getAll() {
+    public Collection<Proba> findAll() {
         logger.traceEntry("getAll");
         ArrayList<Proba> allProbe=new ArrayList<>();
         try (Connection connection = this.connectionHelper.getConnection();) {
@@ -32,7 +31,7 @@ public class RepoProbe implements Repo<Proba> {
                 while (resultSet.next()) {
                     int idProba = resultSet.getInt("idProba");
                     String numeProba = resultSet.getString("numeProba");
-                    CategVarsta categVarsta=repoCategVarsta.cauta(resultSet.getInt("idCateg"));
+                    CategVarsta categVarsta=repoCategVarsta.findOne(resultSet.getInt("idCateg"));
                     Proba proba = new Proba(idProba, numeProba, categVarsta);
                     allProbe.add(proba);
                 }
@@ -43,7 +42,7 @@ public class RepoProbe implements Repo<Proba> {
         return allProbe;
     }
     @Override
-    public Proba cauta(int id) {
+    public Proba findOne(int id) {
         logger.traceEntry("cauta proba cu id {}",id);
         Proba proba=null;
         try (Connection connection=connectionHelper.getConnection()){
@@ -51,7 +50,7 @@ public class RepoProbe implements Repo<Proba> {
                 selectStm.setInt(1,id);
                 ResultSet resultSet=selectStm.executeQuery();
                 resultSet.next();
-                CategVarsta categVarsta = repoCategVarsta.cauta(resultSet.getInt("idCateg"));
+                CategVarsta categVarsta = repoCategVarsta.findOne(resultSet.getInt("idCateg"));
                 int idProba = resultSet.getInt("idProba");
                 String numeProba = resultSet.getString("numeProba");
                 proba = new Proba(idProba, numeProba, categVarsta);
@@ -61,22 +60,6 @@ public class RepoProbe implements Repo<Proba> {
             e.printStackTrace();
         }
         return proba;
-    }
-
-    @Override
-    public void adauga(Proba elem)  throws RepoException {
-        if (false)
-            throw new RepoException(" ");
-    }
-
-    @Override
-    public void sterge(Integer id) {
-
-    }
-
-    @Override
-    public void modifica(Proba elem) {
-
     }
 
     @Override

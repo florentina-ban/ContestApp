@@ -12,6 +12,11 @@ public class Participant {
         this.varsta = varsta;
         this.nrProbe=0;
     }
+    public Participant(String nume, int varsta) {
+        this.nume = nume;
+        this.varsta = varsta;
+        this.nrProbe=0;
+    }
     public Participant(Integer id, String nume, int varsta,int nrProb) {
         this.id = id;
         this.nume = nume;
@@ -53,7 +58,7 @@ public class Participant {
         return nume;
     }
 
-    public int getVarsta() {
+    public Integer getVarsta() {
         return varsta;
     }
 }

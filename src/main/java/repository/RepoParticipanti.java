@@ -1,10 +1,11 @@
 package repository;
 
 import domain.Participant;
+import domain.ParticipantDTO;
+import domain.Proba;
 import myException.RepoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.graalvm.compiler.asm.sparc.SPARCAddress;
 import utils.ConnectionHelper;
 import validator.Validator;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Properties;
 
-public class RepoParticipanti implements Repo<Participant> {
+public class RepoParticipanti implements IRepoParticipanti {
     ConnectionHelper connectionHelper;
     private static final Logger logger= LogManager.getLogger(RepoParticipanti.class.getName());
     Validator<Participant> valiParticipant;
@@ -25,7 +26,7 @@ public class RepoParticipanti implements Repo<Participant> {
     }
 
     @Override
-    public void adauga(Participant elem) throws RepoException {
+    public int adauga(Participant elem) throws RepoException {
         logger.traceEntry("adauga participat {}",elem);
         valiParticipant.valideaza(elem);
         try (Connection connection=connectionHelper.getConnection();){
@@ -34,31 +35,33 @@ public class RepoParticipanti implements Repo<Participant> {
                 preparedStatement.setString(1, elem.getNume());
                 preparedStatement.setInt(2, elem.getVarsta());
                 int rowAdded=preparedStatement.executeUpdate();
+                return this.cautaNume(elem.getNume()).getId();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return -1;
     }
 
     @Override
     public void sterge(Integer id) {
-        logger.traceEntry("sterge participant cu id {}",id);
-        Connection connection=connectionHelper.getConnection();
-        try (PreparedStatement deleteProbePart=connection.prepareStatement("delete from partprobe where IdPart=?")){
-            deleteProbePart.setInt(1,id);
-            int rowCount=deleteProbePart.executeUpdate();
-//            if (rowCount>0)
-//                System.out.println("s-au sters probele");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        try (PreparedStatement deletePart=connection.prepareStatement("delete from participanti where id=?;");){
-            deletePart.setInt(1,id);
-            int rowCount1=deletePart.executeUpdate();
-//            if (rowCount1==1)
-//                System.out.println("s-a sters participantul");
-        }catch (SQLException e){
-            e.printStackTrace();
+        logger.traceEntry("sterge participant cu id {}", id);
+
+        Participant participant = this.findOne(id);
+        if (participant != null) {
+            Connection connection = connectionHelper.getConnection();
+            try (PreparedStatement deleteProbePart = connection.prepareStatement("delete from partprobe where IdPart=?")) {
+                deleteProbePart.setInt(1, id);
+                int rowCount = deleteProbePart.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try (PreparedStatement deletePart = connection.prepareStatement("delete from participanti where id=?;");) {
+                deletePart.setInt(1, id);
+                int rowCount1 = deletePart.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -82,7 +85,7 @@ public class RepoParticipanti implements Repo<Participant> {
     }
 
     @Override
-    public Participant cauta(int id) {
+    public Participant findOne(int id) {
         logger.traceEntry("cauta participant cu id {}",id);
         Participant participant=null;
         try (Connection connection = connectionHelper.getConnection()) {
@@ -101,7 +104,7 @@ public class RepoParticipanti implements Repo<Participant> {
     }
 
     @Override
-    public Collection<Participant> getAll() {
+    public Collection<Participant> findAll() {
         logger.traceEntry("getAll");
         ArrayList<Participant> participanti=new ArrayList<>();
 
@@ -128,7 +131,7 @@ public class RepoParticipanti implements Repo<Participant> {
     @Override
     public void modifica(Participant newPart) {
         logger.traceEntry("modifica participant cu id {}", newPart.getId());
-        Participant participant = cauta(newPart.getId());
+        Participant participant = findOne(newPart.getId());
         if (participant != null) {
             try (Connection connection = connectionHelper.getConnection()) {
                 //update participant

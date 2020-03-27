@@ -31,5 +31,8 @@
     </bean>
     <bean id="serviceT" class="service.Service">
         <constructor-arg name="repoIns" ref="repoInscrieriT"/>
+        <constructor-arg name="repoCateg" ref="repoCategT"/>
+        <constructor-arg name="repoPart" ref="repoParticipantiT"/>
+        <constructor-arg name="repoProbe" ref="repoProbeT"/>
     </bean>
 </beans>

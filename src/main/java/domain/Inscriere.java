@@ -10,12 +10,19 @@ public class Inscriere {
         this.idPart = idPart;
         this.nrInscriere=nr;
     }
-
+    public Inscriere(Integer idProba, Integer idPart) {
+        this.idProba = idProba;
+        this.idPart = idPart;
+    }
     public Integer getIdProba() {
         return idProba;
     }
 
     public Integer getIdPart() {
         return idPart;
+    }
+
+    public Integer getNrInscriere() {
+        return nrInscriere;
     }
 }

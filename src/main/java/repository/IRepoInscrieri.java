@@ -3,6 +3,7 @@ package repository;
 import domain.Inscriere;
 import domain.Participant;
 import domain.Proba;
+import myException.InscrieriException;
 import validator.ValInscriere;
 
 import java.util.Collection;
@@ -13,6 +14,9 @@ public interface IRepoInscrieri extends Repo<Inscriere> {
     ValInscriere valInscriere=null;
 
 
-    public Collection<Participant> getParticipantiLaProba(int idProba);
-    public Collection<Proba> getProbeLaParticipant(int idPart);
+    Collection<Participant> getParticipantiLaProba(int idProba);
+    Collection<Proba> getProbeLaParticipant(int idPart);
+    int adauga(Inscriere elem) throws InscrieriException;
+    void sterge(Integer id);
+    Inscriere getInscriere(int idPart, int idProba);
 }

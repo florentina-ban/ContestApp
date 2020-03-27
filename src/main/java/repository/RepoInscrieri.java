@@ -32,7 +32,7 @@ public class RepoInscrieri implements IRepoInscrieri {
     }
 
     @Override
-    public void adauga(Inscriere elem) throws InscrieriException {
+    public int adauga(Inscriere elem) throws InscrieriException {
         logger.traceEntry("adauga inscriere {}",elem);
         valInscriere.valideaza(elem);
         try (Connection connection = connectionHelper.getConnection();) {
@@ -41,14 +41,33 @@ public class RepoInscrieri implements IRepoInscrieri {
                 insStat.setInt(2, elem.getIdProba());
                 insStat.setInt(1, elem.getIdPart());
                 int rowAdded = insStat.executeUpdate();
+                return this.getInscriere(elem.getIdPart(),elem.getIdProba()).getNrInscriere();
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return -1;
+    }
+    public Inscriere getInscriere(int idPart, int idProba){
+        logger.traceEntry("cauta inregistrare pt idPart: {}, si idProba: {}",idPart,idProba);
+        try (Connection connection = connectionHelper.getConnection()) {
+            try (PreparedStatement findStat = connection.prepareStatement("select NrInscriere from partprobe where IdPart=? and IdProba=?;");) {
+                findStat.setInt(1, idPart);
+                findStat.setInt(2, idProba);
+                try(ResultSet resultSet= findStat.executeQuery();){
+                    resultSet.next();
+                    int nr=resultSet.getInt("nrInscriere");
+                    return new Inscriere(nr,idProba,idPart);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
-    public Collection<Inscriere> getAll() {
+    public Collection<Inscriere> findAll() {
         logger.traceEntry("get all");
         List<Inscriere> all = new ArrayList<>();
         try (Connection connection = connectionHelper.getConnection();) {
@@ -67,11 +86,6 @@ public class RepoInscrieri implements IRepoInscrieri {
             e.printStackTrace();
         }
         return all;
-    }
-
-    @Override
-    public void modifica(Inscriere elem) {
-
     }
 
     @Override
@@ -104,7 +118,7 @@ public class RepoInscrieri implements IRepoInscrieri {
     }
 
     @Override
-    public Inscriere cauta(int id) {
+    public Inscriere findOne(int id) {
         logger.traceEntry("cauta inregistrare cu id {}",id);
         try (Connection connection = connectionHelper.getConnection()) {
             try (PreparedStatement delStat = connection.prepareStatement("select * from partprobe where NrInscriere=?");) {
@@ -133,7 +147,7 @@ public class RepoInscrieri implements IRepoInscrieri {
                 selectStm.setInt(1,idProba);
                 try(ResultSet rs=selectStm.executeQuery()){
                     while (rs.next()){
-                        Participant part=repoParticipanti.cauta(rs.getInt("id"));
+                        Participant part=repoParticipanti.findOne(rs.getInt("id"));
                         allPart.add(part);
                     }
                 }
@@ -154,7 +168,7 @@ public class RepoInscrieri implements IRepoInscrieri {
                     selectStm.setInt(1,idPart);
                     try(ResultSet rs=selectStm.executeQuery()){
                         while (rs.next()){
-                            Proba proba=repoProbe.cauta(rs.getInt("idProba"));
+                            Proba proba=repoProbe.findOne(rs.getInt("idProba"));
                             allProbe.add(proba);
                         }
                     }

@@ -1,25 +1,16 @@
 package repository;
 
 import domain.Inscriere;
-import myException.InscrieriException;
 import myException.RepoException;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import utils.ConnectionHelper;
-import validator.ValInscriere;
-import validator.ValParticipanti;
-
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
-
 import static org.junit.Assert.*;
 
 public class RepoInscrieriTest {
@@ -58,7 +49,7 @@ public class RepoInscrieriTest {
     public void getAll() {
         ApplicationContext factory = new ClassPathXmlApplicationContext("classpath:springConfigTest.xml");
         RepoInscrieri repoInscrieri = factory.getBean(RepoInscrieri.class);
-        assertEquals(repoInscrieri.getAll().size(), 1);
+        assertEquals(repoInscrieri.findAll().size(), 1);
     }
 
     @Test
@@ -101,7 +92,7 @@ public class RepoInscrieriTest {
     public void cauta() {
         ApplicationContext factory = new ClassPathXmlApplicationContext("classpath:springConfigTest.xml");
         RepoInscrieri repoInscrieri = factory.getBean(RepoInscrieri.class);
-        Inscriere inscriere = repoInscrieri.cauta(1);
+        Inscriere inscriere = repoInscrieri.findOne(1);
         assert (inscriere.getIdPart() == 1);
         assert (inscriere.getIdProba() == 2);
     }

@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="450.0" prefWidth="690.0" style="-fx-background-image: url(run.jpg); -fx-background-size: 600px 400px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogController">
+<AnchorPane prefHeight="425.0" prefWidth="690.0" style="-fx-background-color: #859ca8;" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LogController">
    <children>
       <Button fx:id="autentificaBtn" layoutX="290.0" layoutY="246.0" mnemonicParsing="false" onMouseClicked="#handleAutentifica" text="Autentifica" />
       <TextField fx:id="userField" layoutX="290.0" layoutY="144.0" />

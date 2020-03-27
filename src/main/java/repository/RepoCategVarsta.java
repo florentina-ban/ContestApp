@@ -23,18 +23,7 @@ public class RepoCategVarsta implements Repo<CategVarsta> {
         connectionHelper=new ConnectionHelper(props);
     }
     @Override
-    public void adauga(CategVarsta elem) throws RepoException {
-        if (2>1)
-            throw new RepoException(" ");
-    }
-
-    @Override
-    public void sterge(Integer id) {
-
-    }
-
-    @Override
-    public CategVarsta cauta(int id) {
+    public CategVarsta findOne(int id) {
         logger.traceEntry("cauta categ varsta cu id: {}",id);
         try(Connection con=connectionHelper.getConnection()){
             try (PreparedStatement selectStm=con.prepareStatement("select * from categvarsta where id=?")){
@@ -51,7 +40,7 @@ public class RepoCategVarsta implements Repo<CategVarsta> {
     }
 
     @Override
-    public Collection<CategVarsta> getAll() {
+    public Collection<CategVarsta> findAll() {
         logger.traceEntry("get all");
         ArrayList<CategVarsta> all = new ArrayList<>();
         try (Connection con = connectionHelper.getConnection()) {
@@ -67,11 +56,6 @@ public class RepoCategVarsta implements Repo<CategVarsta> {
             e.printStackTrace();
         }
         return all;
-    }
-
-    @Override
-    public void modifica(CategVarsta elem) {
-
     }
 
     @Override

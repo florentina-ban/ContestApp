@@ -6,16 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import utils.ConnectionHelper;
-import validator.ValParticipanti;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.*;
-import java.util.Properties;
 import org.springframework.context.ApplicationContext;
-//import org.springframework.context.
 
 import static org.junit.Assert.*;
 
@@ -42,7 +33,7 @@ public class RepoParticipantiTest {
         logger.traceEntry("cauta participant test");
         ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:springConfigTest.xml");
         RepoParticipanti repoParticipanti=factory.getBean(RepoParticipanti.class);
-        Participant participant = repoParticipanti.cauta(1);
+        Participant participant = repoParticipanti.findOne(1);
         assertEquals(participant.getNume(), "Gigela");
     }
 
@@ -51,7 +42,7 @@ public class RepoParticipantiTest {
         logger.traceEntry("size RepoParticipanti test");
         ApplicationContext factory=new ClassPathXmlApplicationContext("classpath:springConfigTest.xml");
         RepoParticipanti repoParticipanti=factory.getBean(RepoParticipanti.class);
-        assertEquals(repoParticipanti.getAll().size(),1);
+        assertEquals(repoParticipanti.findAll().size(),1);
     }
 
     @Test
@@ -59,7 +50,7 @@ public class RepoParticipantiTest {
         logger.traceEntry("getALl participanti test");
         ApplicationContext factory = new ClassPathXmlApplicationContext("classpath:springConfigTest.xml");
         RepoParticipanti repoParticipanti = factory.getBean(RepoParticipanti.class);
-        assertEquals(repoParticipanti.getAll().size(), 1);
+        assertEquals(repoParticipanti.findAll().size(), 1);
     }
 
     @Test
@@ -67,15 +58,15 @@ public class RepoParticipantiTest {
         logger.traceEntry("modifica participant test");
         ApplicationContext factory = new ClassPathXmlApplicationContext("classpath:springConfigTest.xml");
         RepoParticipanti repoParticipanti = factory.getBean(RepoParticipanti.class);
-        Participant participant = repoParticipanti.cauta(1);
+        Participant participant = repoParticipanti.findOne(1);
         participant.setNume("Gigel");
         participant.setVarsta(7);
         repoParticipanti.modifica(participant);
-        Participant participant1 = repoParticipanti.cauta(1);
+        Participant participant1 = repoParticipanti.findOne(1);
         assertEquals(participant1.getNume(), "Gigel");
         assertEquals(participant1.getVarsta(), 7);
 
-        participant = repoParticipanti.cauta(1);
+        participant = repoParticipanti.findOne(1);
         participant.setNume("Gigela");
         participant.setVarsta(8);
         repoParticipanti.modifica(participant);
